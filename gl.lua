@@ -937,7 +937,7 @@ M.EndTransformFeedback = ffi.C.glEndTransformFeedback
 
 M.Renderbuffer = util.Class()
 
-function M.Renderbuffer:create()
+function M.Renderbuffer:new()
    local renderbuffers = ffi.new("GLuint[1]")
    ffi.C.glGenRenderbuffers(1, renderbuffers)
    local rb = { id = renderbuffers[0] }
@@ -966,7 +966,7 @@ M.RenderbufferStorage = ffi.C.glRenderbufferStorage
 
 M.Framebuffer = util.Class()
 
-function M.Framebuffer:create()
+function M.Framebuffer:new()
    local framebuffers = ffi.new("GLuint[1]")
    ffi.C.glGenFramebuffers(1, framebuffers)
    local fb = { id = framebuffers[0] }
