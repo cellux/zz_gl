@@ -1,6 +1,5 @@
 local ffi = require('ffi')
 local util = require('util')
-local adt = require('adt')
 
 ffi.cdef [[
 
@@ -691,7 +690,7 @@ Program_mt.__index = Program_mt
 
 function M.CreateProgram()
    local id = util.check_bad("glCreateProgram", 0, ffi.C.glCreateProgram())
-   local program = { id = id, shaders = adt.List() }
+   local program = { id = id, shaders = util.List() }
    return setmetatable(program, Program_mt)
 end
 
